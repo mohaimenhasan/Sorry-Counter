@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Sorry-Counter/static/css/main.f855e6bc.css",
+    "main.js": "/Sorry-Counter/static/js/main.aa0c5d70.js",
+    "static/js/453.eba1e842.chunk.js": "/Sorry-Counter/static/js/453.eba1e842.chunk.js",
+    "index.html": "/Sorry-Counter/index.html",
+    "main.f855e6bc.css.map": "/Sorry-Counter/static/css/main.f855e6bc.css.map",
+    "main.aa0c5d70.js.map": "/Sorry-Counter/static/js/main.aa0c5d70.js.map",
+    "453.eba1e842.chunk.js.map": "/Sorry-Counter/static/js/453.eba1e842.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f855e6bc.css",
+    "static/js/main.aa0c5d70.js"
+  ]
+}
