@@ -1,6 +1,8 @@
 
 # Sorry Counter
 
+The site is deployed at - https://mohaimenhasan.github.io/Sorry-Counter
+
 **Sorry Counter** is a React-based web application designed to keep track of apologies made by individuals. Whether for personal, educational, or workplace scenarios, this app allows users to monitor and record the frequency of apologies, ensuring accountability and awareness in communication.
 
 ## Features
