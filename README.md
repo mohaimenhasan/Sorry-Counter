@@ -22,6 +22,7 @@ To set up the Sorry Counter app locally, follow these steps:
 2. Navigate to the project directory:
    ```bash
    cd sorry-counter
+   cd frontend
    ```
 3. Install dependencies:
    ```bash
