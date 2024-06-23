@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import './App.css';
 
 function App() {
@@ -44,6 +46,15 @@ function App() {
     }
   };
 
+  const handleDelete = async (userId) => {
+    try {
+      await axios.post(`https://apologyhandler.azurewebsites.net/api/deleteapology?userId=${userId}`);
+      setApologies(apologies.filter(apology => apology.userId !== userId));
+    } catch (error) {
+      console.error('Error deleting apology:', error);
+    }
+  };
+
   return (
     <div className="app">
       <div className="app-container">
@@ -71,7 +82,14 @@ function App() {
           <h2>Counts</h2>
           <ul>
             {apologies.map(({ userId, count }) => (
-              <li key={userId}>{`${userId}: ${count} sorry(s)`}</li>
+              <li key={userId}>
+                {`${userId}: ${count} sorry(s)`}
+                <FontAwesomeIcon
+                  icon={faTrash}
+                  onClick={() => handleDelete(userId)}
+                  style={{ marginLeft: '10px', cursor: 'pointer' }}
+                />
+              </li>
             ))}
           </ul>
         </div>
