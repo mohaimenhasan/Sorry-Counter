@@ -1,4 +1,4 @@
-import { app, HttpRequest, HttpResponseInit, InvocationContext } from "@azure/functions";
+import { AzureFunction, Context, HttpRequest } from "@azure/functions"
 import { TableClient, AzureNamedKeyCredential } from "@azure/data-tables";
 
 const account = process.env.CosmosDBAccountName as string;
@@ -13,10 +13,9 @@ interface ApologyEntity {
     count: number;
 }
 
-export async function GetAllApologies(request: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> {
-    context.log(`Http function processed request for url "${request.url}"`);
-
-    try {
+const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
+    context.log(`Http function processed request for url "${req.url}"`);
+    try{
         const entities = tableClient.listEntities<ApologyEntity>();
         const allApologies: { userId: string; count: number }[] = [];
 
@@ -27,21 +26,18 @@ export async function GetAllApologies(request: HttpRequest, context: InvocationC
             });
         }
 
-        return {
+        context.res = {
             status: 200,
-            jsonBody: allApologies
+            body: JSON.stringify(allApologies)
         };
-    } catch (error) {
+    }
+    catch (error){
         context.log(`Error fetching apologies: ${error.message}`);
-        return {
+        context.res = {
             status: 500,
             body: `Error fetching apologies: ${error.message}`
         };
     }
 };
 
-app.http('GetAllApologies', {
-    methods: ['GET'],
-    authLevel: 'anonymous',
-    handler: GetAllApologies
-});
+export default httpTrigger;
