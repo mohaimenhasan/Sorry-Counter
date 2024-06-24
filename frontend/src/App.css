@@ -75,6 +75,21 @@
 
 .counter-list {
   text-align: left;
+  max-height: 200px; /* Adjust this value to set the max height */
+  overflow-y: auto;
+  margin-top: 20px;
+}
+
+.counter-list ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+.counter-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
 }
 
 .counter-list h2 {

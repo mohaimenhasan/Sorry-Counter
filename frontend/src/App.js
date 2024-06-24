@@ -33,16 +33,32 @@ function App() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const trimmedPerson = person.trim(); // Remove leading and trailing spaces
+  
+    if (trimmedPerson === '') {
+      console.error('Person name cannot be empty');
+      alert('Person name cannot be empty');
+      return;
+    }
+  
+    const apologyCount = parseInt(count, 10);
+  
+    if (isNaN(apologyCount) || apologyCount < 0) {
+      console.error('Apology count must be a non-negative number');
+      alert('Apology count must be a non-negative number');
+      return;
+    }
+  
     try {
       const response = await axios.post('https://apologyhandler.azurewebsites.net/api/postapologies', {
-        userId: person,
-        count: parseInt(count, 10)
+        userId: trimmedPerson,
+        count: apologyCount
       });
-      setApologies(apologies.map(apology => apology.userId === person
+      setApologies(apologies.map(apology => apology.userId === trimmedPerson
         ? { ...apology, count: response.data.count }
         : apology
       ));
-      if (!apologies.some(apology => apology.userId === person)) {
+      if (!apologies.some(apology => apology.userId === trimmedPerson)) {
         setApologies([...apologies, response.data]);
       }
       setPerson('');
@@ -51,6 +67,7 @@ function App() {
       console.error('Error posting apology:', error);
     }
   };
+  
 
   const handleDelete = async (userId) => {
     try {
@@ -88,7 +105,7 @@ function App() {
           <h1>Sorry Counter</h1>
           {isAuthenticated ? (
             <div className="user-info">
-              <span>Hello, {getFirstName()}</span>
+              <h2>Hello, {getFirstName()}</h2>
               <button onClick={handleLogout} className="button-logout">Logout</button>
             </div>
           ) : (
