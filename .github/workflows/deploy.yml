@@ -21,9 +21,17 @@ jobs:
         run: npm install
         working-directory: frontend
 
+      - name: Inject Environment Variables
+        run: |
+          echo "REACT_APP_CLIENT_ID=${{ secrets.REACT_APP_CLIENT_ID }}" >> $GITHUB_ENV
+          echo "REACT_APP_TENANT_ID=${{ secrets.REACT_APP_TENANT_ID }}" >> $GITHUB_ENV
+
       - name: Build
         run: npm run build
         working-directory: frontend
+        env:
+          REACT_APP_CLIENT_ID: ${{ secrets.REACT_APP_CLIENT_ID }}
+          REACT_APP_TENANT_ID: ${{ secrets.REACT_APP_TENANT_ID }}
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.5
