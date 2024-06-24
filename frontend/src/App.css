@@ -1,3 +1,4 @@
+/* App.css */
 .app {
   text-align: center;
   font-family: 'Arial', sans-serif;
@@ -20,6 +21,28 @@
 .app-header {
   color: #61dafb;
   margin-bottom: 20px;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.button-login, .button-logout {
+  background-color: #61dafb;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button-login:hover, .button-logout:hover {
+  background-color: #21a1f1;
 }
 
 .form {
@@ -50,6 +73,25 @@
   background-color: #21a1f1;
 }
 
+.counter-list {
+  text-align: left;
+  max-height: 200px; /* Adjust this value to set the max height */
+  overflow-y: auto;
+  margin-top: 20px;
+}
+
+.counter-list ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+.counter-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
 .counter-list h2 {
   color: #61dafb;
   margin-bottom: 10px;
@@ -67,4 +109,17 @@ li {
   border-radius: 4px;
   margin-bottom: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.delete-icon {
+  color: #e74c3c;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.delete-icon:hover {
+  color: #c0392b;
 }
