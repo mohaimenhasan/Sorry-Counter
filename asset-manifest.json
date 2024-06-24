@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Sorry-Counter/static/css/main.31848469.css",
-    "main.js": "/Sorry-Counter/static/js/main.16f6e641.js",
+    "main.css": "/Sorry-Counter/static/css/main.9f3ab3c0.css",
+    "main.js": "/Sorry-Counter/static/js/main.a928b61f.js",
     "static/js/453.eba1e842.chunk.js": "/Sorry-Counter/static/js/453.eba1e842.chunk.js",
     "index.html": "/Sorry-Counter/index.html",
-    "main.31848469.css.map": "/Sorry-Counter/static/css/main.31848469.css.map",
-    "main.16f6e641.js.map": "/Sorry-Counter/static/js/main.16f6e641.js.map",
+    "main.9f3ab3c0.css.map": "/Sorry-Counter/static/css/main.9f3ab3c0.css.map",
+    "main.a928b61f.js.map": "/Sorry-Counter/static/js/main.a928b61f.js.map",
     "453.eba1e842.chunk.js.map": "/Sorry-Counter/static/js/453.eba1e842.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.31848469.css",
-    "static/js/main.16f6e641.js"
+    "static/css/main.9f3ab3c0.css",
+    "static/js/main.a928b61f.js"
   ]
 }
